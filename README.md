@@ -18,3 +18,8 @@ docker run -d --privileged=true --restart always \
   -v /opt/apps/app_1/app:/usr/local/tomcat/webapps \
   --name tomcat9 zzjhacn/tomcat9jdk8
 ```
+
+working_dir : `exp: /opt/apps/app_1/`
+* $working_dir/tomcat_conf: place configuration file(s) for tomcat
+* $working_dir/tomcat_log: tomcat logs dir
+* $working_dir/app: tomcat webapps dir
