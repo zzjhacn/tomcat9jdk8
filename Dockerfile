@@ -84,13 +84,13 @@ RUN set -e \
 
 # delete log and webapps dir
 RUN set -e \
-	&& rm -rf /usr/local/tomcat/log \
+	&& rm -rf /usr/local/tomcat/logs \
 	&& rm -rf /usr/local/tomcat/webapps \
 	&& if [ -d "/tomcat/conf" ]; then \
 		cp -f /tomcat/conf/* /usr/local/tomcat/conf/; \
 	fi
 
-VOLUME ["/tomcat/conf", "/usr/local/tomcat/log", "/usr/local/tomcat/webapps"]
+VOLUME ["/tomcat/conf", "/usr/local/tomcat/logs", "/usr/local/tomcat/webapps"]
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]

@@ -14,7 +14,7 @@ Tomcat9(9.0.0.M17) with Oracle jdk8(8u121)
 docker run -d --privileged=true --restart always \
   -p 8880:8080 \
   -v /opt/apps/app_1/tomcat_conf:/tomcat/conf \
-  -v /opt/apps/app_1/tomcat_log:/usr/local/tomcat/log \
+  -v /opt/apps/app_1/tomcat_log:/usr/local/tomcat/logs \
   -v /opt/apps/app_1/app:/usr/local/tomcat/webapps \
-  --name tomcat9 zzjhacn/tomcat9jdk9
+  --name tomcat9 zzjhacn/tomcat9jdk8
 ```
