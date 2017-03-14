@@ -27,7 +27,7 @@ working_dir : `exp: /opt/apps/app_1/`
 
 ----
 
-simple shell for initializing a app `sh Initializing.sh [app_name] [port]`
+## simple shell for initializing a app `sh Initializing.sh [app_name] [port]`
 
 Initializing.sh
 ```shell
