@@ -89,11 +89,11 @@ RUN set -e \
 
 RUN set -e \
 	&& echo "#!/bin/sh" > $CATALINA_HOME/bin/start.sh \
-	&& echo "if [ -d /tomcat/conf ]; then" > $CATALINA_HOME/bin/start.sh \
-	&& echo "  cp -f /tomcat/conf/* /usr/local/tomcat/conf/;" > $CATALINA_HOME/bin/start.sh \
-	&& echo "fi" > $CATALINA_HOME/bin/start.sh \
-	&& echo "catalina.sh run" > $CATALINA_HOME/bin/start.sh \
-	&& chmod a+x $CATALINA_HOME/bin/start.sh 
+	&& echo "if [ -d /tomcat/conf ]; then" >> $CATALINA_HOME/bin/start.sh \
+	&& echo "  cp -f /tomcat/conf/* /usr/local/tomcat/conf/;" >> $CATALINA_HOME/bin/start.sh \
+	&& echo "fi" >> $CATALINA_HOME/bin/start.sh \
+	&& echo "catalina.sh run" >> $CATALINA_HOME/bin/start.sh \
+	&& chmod a+x $CATALINA_HOME/bin/start.sh
 
 VOLUME ["/tomcat/conf", "/usr/local/tomcat/logs", "/usr/local/tomcat/webapps"]
 
