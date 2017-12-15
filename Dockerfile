@@ -82,7 +82,7 @@ RUN set -e \
 		exit 1; \
 	fi
 
-RUN sed -e \
+RUN set -e \
 	&& sed -i 's/8080/80/g' /usr/local/tomcat/conf/server.xml \
 	&& sed -i 's/8443/443/g' /usr/local/tomcat/conf/server.xml
 
