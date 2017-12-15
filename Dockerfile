@@ -82,6 +82,10 @@ RUN set -e \
 		exit 1; \
 	fi
 
+RUN sed -e \
+	&& sed -i 's/8080/80/g' /usr/local/tomcat/conf/server.xml \
+	&& sed -i 's/8443/443/g' /usr/local/tomcat/conf/server.xml
+
 # delete log and webapps dir
 RUN set -e \
 	&& rm -rf /usr/local/tomcat/logs \
@@ -97,5 +101,5 @@ RUN set -e \
 
 VOLUME ["/tomcat/conf", "/usr/local/tomcat/logs", "/usr/local/tomcat/webapps"]
 
-EXPOSE 8080
+EXPOSE 80
 CMD ["start.sh"]
