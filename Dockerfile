@@ -91,7 +91,7 @@ RUN set -e \
 	&& rm -rf /usr/local/tomcat/logs \
 	&& rm -rf /usr/local/tomcat/webapps
 
-CP Shanghai /etc/localtime
+COPY Shanghai /etc/localtime
 
 RUN set -e \
 	&& echo "#!/bin/sh" > $CATALINA_HOME/bin/start.sh \
