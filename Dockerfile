@@ -10,7 +10,7 @@ ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
 
 RUN apk update
-RUN apk add --no-cache gnupg curl
+#RUN apk add --no-cache  curl
 
 # see https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/KEYS
 # see also "update.sh" (https://github.com/docker-library/tomcat/blob/master/update.sh)
@@ -36,7 +36,6 @@ RUN set -x \
 		openssl \
 	&& wget -O tomcat.tar.gz "$TOMCAT_TGZ_URL" \
 	&& wget -O tomcat.tar.gz.asc "$TOMCAT_ASC_URL" \
-	&& gpg --batch --verify tomcat.tar.gz.asc tomcat.tar.gz \
 	&& tar -xvf tomcat.tar.gz --strip-components=1 \
 	&& rm bin/*.bat \
 	&& rm tomcat.tar.gz* \
@@ -82,6 +81,8 @@ RUN set -e \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
 	fi
+
+RUN apk add curl
 
 RUN set -e \
 	&& sed -i 's/8080/80/g' /usr/local/tomcat/conf/server.xml \
